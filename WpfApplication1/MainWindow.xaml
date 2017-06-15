@@ -1,0 +1,38 @@
+﻿<Window x:Class="WpfApplication1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication1"
+        mc:Ignorable="d"
+        d:DataContext="{d:DesignInstance local:MainViewModel}"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Text="{Binding Text}" />
+        <TextBox Grid.Row="1" Text="{Binding Text}" />
+        <Button Grid.Row="2" Content="Validate" Command="{Binding ValidateCommand}" Width="200" FontFamily="High Tower Text" RenderTransformOrigin="0,1" >
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="30"/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <Button.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="White" Offset="0.408"/>
+                    <GradientStop Color="#FFBBD9EE" Offset="1"/>
+                </RadialGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button Grid.Row="3" Content="OpenOtherView" Command="{Binding OpenOtherViewCommand}" />
+    </Grid>
+</Window>
